@@ -1,0 +1,19 @@
+version: "3.9"
+
+services:
+  backend:
+    build:
+      context: ./backend
+    environment:
+      - PORT=8080
+    ports:
+      - "8080:8080"
+
+  nginx:
+    build:
+      context: ../..
+      dockerfile: code/currency-converter/nginx/Dockerfile
+    depends_on:
+      - backend
+    ports:
+      - "8081:80"

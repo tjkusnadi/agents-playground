@@ -78,7 +78,7 @@ func convertHandler(w http.ResponseWriter, r *http.Request) {
 		amount = parsed
 	}
 
-	rate, err := fetchRate(base, target)
+	rate, err := rateFetcher(base, target)
 	if err != nil {
 		log.Printf("failed to fetch rate: %v", err)
 		http.Error(w, "failed to fetch rate", http.StatusBadGateway)
@@ -99,6 +99,8 @@ func convertHandler(w http.ResponseWriter, r *http.Request) {
 		log.Printf("failed to encode response: %v", err)
 	}
 }
+
+var rateFetcher = fetchRate
 
 func fetchRate(base, target string) (float64, error) {
 	symbol := base + target + "=X"
