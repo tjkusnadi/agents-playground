@@ -9,7 +9,7 @@ type ConversionResult = {
   source: string;
 };
 
-const currencies = ['USD', 'IDR', 'SGD', 'JPY', 'KRW', 'VND'] as const;
+const currencies = ['USD', 'IDR', 'SGD', 'JPY', 'KRW'] as const;
 
 type Currency = (typeof currencies)[number];
 
