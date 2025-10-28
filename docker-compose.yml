@@ -1,0 +1,40 @@
+version: "3.9"
+
+services:
+  db:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_USER: travel
+      POSTGRES_PASSWORD: travel
+      POSTGRES_DB: travel
+    volumes:
+      - travel-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "travel"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build:
+      context: ./code/travel-blog/backend
+      dockerfile: Dockerfile
+    environment:
+      DATABASE_URL: postgres://travel:travel@db:5432/travel?sslmode=disable
+      PORT: "8080"
+    depends_on:
+      db:
+        condition: service_healthy
+
+  frontend:
+    build:
+      context: ./code/travel-blog/frontend
+      dockerfile: Dockerfile
+    ports:
+      - "8088:80"
+    depends_on:
+      backend:
+        condition: service_started
+
+volumes:
+  travel-data:
