@@ -1,6 +1,4 @@
-const API_BASE = window.location.origin.includes("localhost")
-  ? "http://localhost:8080/api"
-  : `${window.location.origin}/api`;
+const API_BASE = new URL("/api", window.location.origin).toString();
 
 const countriesList = document.getElementById("countriesList");
 const countryTemplate = document.getElementById("countryTemplate");

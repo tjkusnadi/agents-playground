@@ -17,7 +17,7 @@ services:
 
   backend:
     build:
-      context: ./code/travel-blog/backend
+      context: ./backend
       dockerfile: Dockerfile
     environment:
       DATABASE_URL: postgres://travel:travel@db:5432/travel?sslmode=disable
@@ -26,9 +26,9 @@ services:
       db:
         condition: service_healthy
 
-  frontend:
+  nginx:
     build:
-      context: ./code/travel-blog/frontend
+      context: ./frontend
       dockerfile: Dockerfile
     ports:
       - "8088:80"
