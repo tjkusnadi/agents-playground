@@ -4,19 +4,20 @@ This project contains a small travel CMS and public site for recording visited c
 
 ## Components
 - **Backend**: Go (Gin) API that manages countries and places in a Postgres database.
-- **Frontend**: Static HTML/CSS/JS experience served through Nginx. Includes a public gallery and lightweight admin forms.
+- **Public Frontend**: Static HTML/CSS/JS experience served through Nginx for browsing destinations.
+- **Admin Frontend**: Separate Nginx site that surfaces the content management forms.
 - **Infrastructure**: Docker Compose orchestration with Postgres and containerized services.
 
 ### Frontend layout
-- **Public UI**: The "Destinations" section in `frontend/index.html` renders the public catalogue of countries and the places within them. It is driven by the country and place templates in the same file and the rendering helpers in `frontend/main.js`.
-- **Admin UI**: The "Content Management" section in `frontend/index.html` exposes the country and place submission forms. Form handling logic lives alongside the fetch helpers in `frontend/main.js`.
+- **Public UI**: Lives in `frontend/`. The "Destinations" section in `frontend/index.html` renders the public catalogue of countries and the places within them, driven by the templates in the same file and the rendering helpers in `frontend/main.js`.
+- **Admin UI**: Lives in `frontend-admin/`. The admin dashboard mirrors the destination list while exposing country and place submission forms. Form handling logic and API helpers live in `frontend-admin/main.js`.
 
 ## Running locally
 ```bash
-docker compose up --build
+docker compose -f code/travel-blog/docker-compose.yml up --build
 ```
 
-The frontend is available at <http://localhost:8088>. API endpoints are proxied through `/api`.
+The public frontend is available at <http://localhost:8088> and the admin dashboard at <http://localhost:8090>. API endpoints are proxied through `/api` in both frontends.
 
 Set `DATABASE_URL` when running the backend outside Docker, for example:
 ```bash

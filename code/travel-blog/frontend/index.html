@@ -10,6 +10,10 @@
     <header>
       <h1>Travel Memories</h1>
       <p class="tagline">Discover countries and places we've explored around the world.</p>
+      <p class="admin-link">
+        Need to add content?
+        <a href="http://localhost:8090" target="_blank" rel="noopener">Open the admin panel.</a>
+      </p>
     </header>
 
     <main>
@@ -19,59 +23,6 @@
           <button id="refreshBtn" class="button secondary">Refresh</button>
         </div>
         <div id="countriesList" class="grid"></div>
-      </section>
-
-      <section id="admin" class="panel">
-        <h2>Content Management</h2>
-        <p class="panel-subtitle">Use the forms below to add new countries and places.</p>
-
-        <div class="form-card">
-          <h3>Add a Country</h3>
-          <form id="countryForm">
-            <label>
-              Name
-              <input type="text" id="countryName" required />
-            </label>
-            <label>
-              Description
-              <textarea id="countryDescription" rows="3" placeholder="Describe your experience"></textarea>
-            </label>
-            <button type="submit" class="button">Create Country</button>
-          </form>
-        </div>
-
-        <div class="form-card">
-          <h3>Add a Place</h3>
-          <form id="placeForm">
-            <label>
-              Country
-              <select id="placeCountry" required></select>
-            </label>
-            <label>
-              Name
-              <input type="text" id="placeName" required />
-            </label>
-            <label>
-              Category
-              <input type="text" id="placeCategory" placeholder="Restaurant, Museum, ..." required />
-            </label>
-            <label>
-              City
-              <input type="text" id="placeCity" />
-            </label>
-            <label>
-              Description
-              <textarea id="placeDescription" rows="3"></textarea>
-            </label>
-            <label>
-              Visited Date
-              <input type="date" id="placeVisitedAt" />
-            </label>
-            <button type="submit" class="button">Add Place</button>
-          </form>
-        </div>
-
-        <div id="adminAlerts" class="alerts" role="status" aria-live="polite"></div>
       </section>
     </main>
 

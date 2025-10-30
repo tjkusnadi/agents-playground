@@ -28,23 +28,8 @@ header h1 {
 
 header .tagline {
   max-width: 40rem;
-  margin: 0 auto 0.75rem;
+  margin: 0 auto;
   font-size: 1.1rem;
-}
-
-header .admin-link {
-  margin: 0;
-  font-size: 0.95rem;
-  opacity: 0.85;
-}
-
-header .admin-link a {
-  color: inherit;
-  font-weight: 600;
-}
-
-header .admin-link a:hover {
-  color: #bae6fd;
 }
 
 main {
@@ -68,6 +53,11 @@ main {
   align-items: center;
   gap: 1rem;
   margin-bottom: 1.5rem;
+}
+
+.panel-subtitle {
+  margin-top: -0.5rem;
+  color: #475569;
 }
 
 .grid {
@@ -129,6 +119,43 @@ main {
   color: #1e293b;
 }
 
+.form-card {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  border-radius: 1.25rem;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  box-shadow: 0 15px 30px rgba(15, 23, 42, 0.08);
+}
+
+.form-card h3 {
+  margin-top: 0;
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 0.75rem;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  margin-top: 0.35rem;
+  padding: 0.75rem 0.9rem;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(148, 163, 184, 0.4);
+  font-size: 1rem;
+  box-sizing: border-box;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+textarea {
+  resize: vertical;
+}
+
 .button {
   appearance: none;
   border: none;
@@ -137,6 +164,7 @@ main {
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
+  margin-top: 1rem;
   color: #fff;
   background: linear-gradient(135deg, #2563eb, #7c3aed);
   transition: transform 0.15s ease, box-shadow 0.2s ease;
@@ -158,22 +186,47 @@ main {
   cursor: not-allowed;
 }
 
+.alerts {
+  margin-top: 1.5rem;
+  display: grid;
+  gap: 0.75rem;
+}
+
 .empty {
   text-align: center;
   padding: 2rem 0;
   color: #475569;
 }
 
-.empty.error {
-  color: #b91c1c;
+.alert {
+  padding: 0.75rem 1rem;
+  border-radius: 0.9rem;
+  font-weight: 500;
 }
 
-@media (max-width: 600px) {
-  header {
-    padding: 2rem 0 0.5rem;
+.alert.success {
+  background: rgba(34, 197, 94, 0.12);
+  color: #047857;
+  border: 1px solid rgba(34, 197, 94, 0.25);
+}
+
+.alert.error {
+  background: rgba(239, 68, 68, 0.12);
+  color: #b91c1c;
+  border: 1px solid rgba(239, 68, 68, 0.25);
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 0 1rem 2rem;
   }
 
   .panel {
     padding: 1.5rem;
+  }
+
+  .panel-header {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }

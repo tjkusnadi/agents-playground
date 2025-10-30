@@ -26,12 +26,22 @@ services:
       db:
         condition: service_healthy
 
-  nginx:
+  public-frontend:
     build:
       context: ./frontend
       dockerfile: Dockerfile
     ports:
       - "8088:80"
+    depends_on:
+      backend:
+        condition: service_started
+
+  admin-frontend:
+    build:
+      context: ./frontend-admin
+      dockerfile: Dockerfile
+    ports:
+      - "8090:80"
     depends_on:
       backend:
         condition: service_started

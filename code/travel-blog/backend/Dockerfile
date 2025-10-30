@@ -3,6 +3,8 @@
 FROM golang:1.21-alpine AS builder
 WORKDIR /app
 
+ENV GOFLAGS=-mod=mod
+
 COPY go.mod ./
 RUN go mod download
 
