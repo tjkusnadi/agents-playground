@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Travel Memories</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Travel Memories</h1>
+      <p class="tagline">Discover countries and places we've explored around the world.</p>
+      <p class="admin-link">
+        Need to add content?
+        <a href="http://localhost:8090" target="_blank" rel="noopener">Open the admin panel.</a>
+      </p>
+    </header>
+
+    <main>
+      <section id="countries" class="panel">
+        <div class="panel-header">
+          <h2>Destinations</h2>
+          <button id="refreshBtn" class="button secondary">Refresh</button>
+        </div>
+        <div id="countriesList" class="grid"></div>
+      </section>
+    </main>
+
+    <template id="countryTemplate">
+      <article class="country-card">
+        <div class="country-header">
+          <h3 class="country-name"></h3>
+          <p class="country-description"></p>
+        </div>
+        <ul class="places"></ul>
+      </article>
+    </template>
+
+    <template id="placeTemplate">
+      <li class="place-item">
+        <div>
+          <h4 class="place-name"></h4>
+          <p class="place-meta"></p>
+        </div>
+        <p class="place-description"></p>
+      </li>
+    </template>
+
+    <script src="main.js" defer></script>
+  </body>
+</html>

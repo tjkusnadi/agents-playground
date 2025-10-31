@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Travel Memories Admin</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Travel Memories Admin</h1>
+      <p class="tagline">Manage the destinations that appear on the public site.</p>
+    </header>
+
+    <main>
+      <section id="countries" class="panel">
+        <div class="panel-header">
+          <h2>Destinations</h2>
+          <button id="refreshBtn" class="button secondary">Refresh</button>
+        </div>
+        <div id="countriesList" class="grid"></div>
+      </section>
+
+      <section id="admin" class="panel">
+        <h2>Content Management</h2>
+        <p class="panel-subtitle">Use the forms below to add new countries and places.</p>
+
+        <div class="form-card">
+          <h3>Add a Country</h3>
+          <form id="countryForm">
+            <label>
+              Name
+              <input type="text" id="countryName" required />
+            </label>
+            <label>
+              Description
+              <textarea id="countryDescription" rows="3" placeholder="Describe your experience"></textarea>
+            </label>
+            <button type="submit" class="button">Create Country</button>
+          </form>
+        </div>
+
+        <div class="form-card">
+          <h3>Add a Place</h3>
+          <form id="placeForm">
+            <label>
+              Country
+              <select id="placeCountry" required></select>
+            </label>
+            <label>
+              Name
+              <input type="text" id="placeName" required />
+            </label>
+            <label>
+              Category
+              <input type="text" id="placeCategory" placeholder="Restaurant, Museum, ..." required />
+            </label>
+            <label>
+              City
+              <input type="text" id="placeCity" />
+            </label>
+            <label>
+              Description
+              <textarea id="placeDescription" rows="3"></textarea>
+            </label>
+            <label>
+              Visited Date
+              <input type="date" id="placeVisitedAt" />
+            </label>
+            <button type="submit" class="button">Add Place</button>
+          </form>
+        </div>
+
+        <div id="adminAlerts" class="alerts" role="status" aria-live="polite"></div>
+      </section>
+    </main>
+
+    <template id="countryTemplate">
+      <article class="country-card">
+        <div class="country-header">
+          <h3 class="country-name"></h3>
+          <p class="country-description"></p>
+        </div>
+        <ul class="places"></ul>
+      </article>
+    </template>
+
+    <template id="placeTemplate">
+      <li class="place-item">
+        <div>
+          <h4 class="place-name"></h4>
+          <p class="place-meta"></p>
+        </div>
+        <p class="place-description"></p>
+      </li>
+    </template>
+
+    <script src="main.js" defer></script>
+  </body>
+</html>
