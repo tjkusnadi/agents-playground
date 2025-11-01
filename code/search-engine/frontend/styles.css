@@ -1,0 +1,210 @@
+:root {
+  --primary: #2e7dff;
+  --danger: #e53935;
+  --background: #f4f6fb;
+  --card-bg: #ffffff;
+  --text-color: #1f2a44;
+  --muted: #6b7a99;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+body {
+  margin: 0;
+  background-color: var(--background);
+  color: var(--text-color);
+}
+
+header {
+  background: linear-gradient(135deg, #2e7dff, #5c4dff);
+  color: #fff;
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+header h1 {
+  margin: 0 0 0.5rem;
+  font-size: 2.5rem;
+}
+
+header p {
+  margin: 0;
+  font-size: 1.1rem;
+  opacity: 0.85;
+}
+
+main {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+section {
+  margin-bottom: 2.5rem;
+}
+
+.search-section form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.search-section input,
+.search-section select {
+  flex: 1;
+  min-width: 220px;
+  padding: 0.75rem;
+  border-radius: 8px;
+  border: 1px solid #d4daf5;
+  font-size: 1rem;
+}
+
+.search-section button {
+  padding: 0.75rem 1.5rem;
+  background: var(--primary);
+  border: none;
+  color: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.search-section button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 16px rgba(46, 125, 255, 0.3);
+}
+
+.movie-card {
+  background-color: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(31, 42, 68, 0.08);
+  margin-bottom: 1rem;
+}
+
+.movie-card .title {
+  margin: 0 0 0.5rem;
+  font-size: 1.4rem;
+}
+
+.movie-card .meta {
+  margin: 0 0 0.75rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.movie-card .identifier {
+  margin-top: 0.75rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+  word-break: break-all;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.pagination button {
+  padding: 0.6rem 1.2rem;
+  border-radius: 999px;
+  border: 1px solid var(--primary);
+  background: transparent;
+  color: var(--primary);
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.pagination button:disabled {
+  border-color: #bdc6e6;
+  color: #bdc6e6;
+  cursor: default;
+  background: #f0f2fb;
+}
+
+.pagination button:not(:disabled):hover {
+  background: rgba(46, 125, 255, 0.1);
+}
+
+.forms-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  background: var(--card-bg);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 12px 22px rgba(31, 42, 68, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.card label {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+.card input,
+.card textarea {
+  margin-top: 0.25rem;
+  padding: 0.65rem;
+  border-radius: 8px;
+  border: 1px solid #d4daf5;
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+.card textarea {
+  min-height: 80px;
+}
+
+.card button {
+  align-self: flex-start;
+  padding: 0.65rem 1.3rem;
+  border-radius: 999px;
+  border: none;
+  background: var(--primary);
+  color: #fff;
+  cursor: pointer;
+}
+
+.card button.danger {
+  background: var(--danger);
+}
+
+.card .buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.status {
+  min-height: 1.2rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.status.success {
+  color: #1b8a5a;
+}
+
+.status.error {
+  color: var(--danger);
+}
+
+@media (max-width: 768px) {
+  main {
+    padding: 1rem;
+  }
+
+  header h1 {
+    font-size: 2rem;
+  }
+}
