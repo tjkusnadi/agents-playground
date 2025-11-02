@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movie Search Engine</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Movie Search Engine</h1>
+      <p>Search, browse, and manage movie records powered by Elasticsearch.</p>
+    </header>
+
+    <main>
+      <section class="search-section">
+        <h2>Search</h2>
+        <form id="search-form">
+          <input type="text" id="search-query" placeholder="Search by title, description, or genre" />
+          <select id="page-size">
+            <option value="5">5 per page</option>
+            <option value="10">10 per page</option>
+            <option value="20">20 per page</option>
+          </select>
+          <button type="submit">Search</button>
+        </form>
+        <div id="results"></div>
+        <div class="pagination">
+          <button id="prev-page">Previous</button>
+          <span id="page-info"></span>
+          <button id="next-page">Next</button>
+        </div>
+      </section>
+
+      <section class="crud-section">
+        <h2>Manage Movies</h2>
+        <div class="forms-container">
+          <form id="create-form" class="card">
+            <h3>Create Movie</h3>
+            <label>Title<input type="text" name="title" required /></label>
+            <label>Description<textarea name="description"></textarea></label>
+            <label>Genre<input type="text" name="genre" /></label>
+            <label>Rating<input type="number" name="rating" min="0" max="10" step="0.1" /></label>
+            <label>Release Year<input type="number" name="release_year" min="1900" max="2100" /></label>
+            <button type="submit">Create</button>
+            <p class="status" data-target="create"></p>
+          </form>
+
+          <form id="update-form" class="card">
+            <h3>Update Movie</h3>
+            <label>Movie ID<input type="text" name="id" required /></label>
+            <label>Title<input type="text" name="title" required /></label>
+            <label>Description<textarea name="description"></textarea></label>
+            <label>Genre<input type="text" name="genre" /></label>
+            <label>Rating<input type="number" name="rating" min="0" max="10" step="0.1" /></label>
+            <label>Release Year<input type="number" name="release_year" min="1900" max="2100" /></label>
+            <div class="buttons">
+              <button type="button" id="load-movie">Load</button>
+              <button type="submit">Update</button>
+            </div>
+            <p class="status" data-target="update"></p>
+          </form>
+
+          <form id="delete-form" class="card">
+            <h3>Delete Movie</h3>
+            <label>Movie ID<input type="text" name="id" required /></label>
+            <button type="submit" class="danger">Delete</button>
+            <p class="status" data-target="delete"></p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <template id="movie-template">
+      <article class="movie-card">
+        <h3 class="title"></h3>
+        <p class="meta"></p>
+        <p class="description"></p>
+        <p class="identifier"></p>
+      </article>
+    </template>
+
+    <script src="app.js"></script>
+  </body>
+</html>
