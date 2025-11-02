@@ -62,7 +62,7 @@ func main() {
 		log.Fatalf("unable to resolve frontend directory: %v", err)
 	}
 	if _, err := os.Stat(absDir); err == nil {
-		router.Static("/", absDir)
+		router.Static("/app", absDir)
 	} else {
 		log.Printf("frontend directory not found at %s, API will still be available", absDir)
 	}
